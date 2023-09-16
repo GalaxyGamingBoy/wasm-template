@@ -1,0 +1,25 @@
+[package]
+name = "wasm-template"
+version = "1.0.0"
+description = "A template for kick starting a Rust and WebAssembly project using wasm-bindgen"
+repository = "https://github.com/GalaxyGamingBoy/wasm-template"
+license = "UNLICENSED"
+authors = ["Marios Mitsios <xrteach@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+wasm-bindgen = "0.2.84"
+console_error_panic_hook = { version = "0.1.7", optional = true }
+web-sys = { version = "0.3.64", features = ["console"]}
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.34"
+
+[profile.release]
+opt-level = "s"
